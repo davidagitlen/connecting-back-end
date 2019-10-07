@@ -7,7 +7,7 @@ app.use(cors());
 app.set('port', process.env.PORT || 3001);
 
 const corsOptions = {
-  origin: 'https://dg-test-front-end.herokuapp.com/',
+  origin: 'https://dg-test-front-end.herokuapp.com',
   optionsSuccessStatus: 200
 }
 

@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-// app.use(cors());
+app.use(cors());
 
 app.set('port', process.env.PORT || 3001);
 
-// const corsOptions = {
-//   origin: 'http://localhost:3000',
-//   optionsSuccessStatus: 200
-// }
+const corsOptions = {
+  origin: 'https://dg-test-front-end.herokuapp.com/',
+  optionsSuccessStatus: 200
+}
 
 const snacks = [
   { snackName: 'tacos', delicious: 'yup', cheap: 'Probably' }, 
@@ -17,7 +17,7 @@ const snacks = [
   { snackName: 'sad porridge', delicious: 'probably not', cheap: 'Hell yes' }
 ]
 
-app.get('/api/v1/snacks', cors(), (request, response) => {
+app.get('/api/v1/snacks', cors(corsOptions), (request, response) => {
   return response.status(200).json({snacks})
 });
 
